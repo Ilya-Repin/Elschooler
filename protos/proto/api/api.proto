@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "api.v1;apiv1";
+
+
+service User {
+  rpc RegUser (RegUserRequest) returns (RegUserResponse);
+}
+
+message RegUserRequest {
+  string service = 1;
+}
+
+message RegUserResponse {
+  string user_token = 1;
+}
+
+service Student {
+  rpc AddStudent (AddStudentRequest) returns (AddStudentResponse);
+  rpc DeleteStudent (DeleteStudentRequest) returns (DeleteStudentResponse);
+  rpc UpdateStudent (UpdateStudentRequest) returns (UpdateStudentResponse);
+}
+
+message AddStudentRequest {
+  string user_token = 1;
+  string login = 2;
+  string password = 3;
+}
+
+message AddStudentResponse {
+  string student_token = 1;
+}
+
+message DeleteStudentRequest {
+  string user_token = 1;
+  string student_token = 2;
+}
+
+message DeleteStudentResponse {
+  bool success = 1;
+}
+
+message UpdateStudentRequest {
+  string user_token = 1;
+  string student_token = 2;
+  string login = 3;
+  string password = 4;
+}
+
+message UpdateStudentResponse {
+  string student_token = 1;
+}
+
+service Marks {
+  rpc GetDayMarks (DayMarksRequest) returns (DayMarksResponse);
+  rpc GetAverageMarks (AverageMarksRequest) returns (AverageMarksResponse);
+  rpc GetFinalMarks (FinalMarksRequest) returns (FinalMarksResponse);
+}
+
+message LisOfIntMarks {
+  repeated int32 marks = 1;
+}
+
+message DayMarksRequest {
+  string user_token = 1;
+  string student_token = 2;
+  string date = 3;
+}
+
+message DayMarksResponse {
+  map<string, LisOfIntMarks> marks = 1;
+  int32 worst_mark = 2;
+}
+
+message AverageMarksRequest {
+  string user_token = 1;
+  string student_token = 2;
+  int32 period = 3;
+}
+
+message AverageMarksResponse {
+  map<string, string> marks = 1;
+  string worst_mark = 2;
+}
+
+message FinalMarksRequest {
+  string user_token = 1;
+  string student_token = 2;
+}
+
+message FinalMarksResponse {
+  map<string, LisOfIntMarks> marks = 1;
+  int32 worst_mark = 2;
+}
