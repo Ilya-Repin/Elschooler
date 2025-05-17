@@ -1,0 +1,85 @@
+version: '3.1'
+
+services:
+  api-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: elschool_api_db
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  api-cache:
+    image: redis:latest
+    volumes:
+      - redis_data:/storage/redis
+    restart: always
+    networks:
+      - backend
+
+  migrator:
+    image: gomicro/goose
+    depends_on:
+      - api-db
+    volumes:
+      - ./api/storage/migrations:/migrations
+    entrypoint: >
+      /bin/sh -c "
+        echo 'Waiting for DB...';
+        sleep 5;
+        goose postgres 'host=api-db user=postgres password=postgres dbname=elschool_api_db sslmode=disable' up
+      "
+    networks:
+      - backend
+
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    depends_on:
+      - api-db
+      - migrator
+    environment:
+      CONFIG_PATH: /app/config/prod.yaml
+      ENV: dev
+    ports:
+      - "44044:44044"
+    volumes:
+      - ./api/config:/app/config:ro
+    networks:
+      - backend
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - backend
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+    depends_on:
+      - prometheus
+    volumes:
+      - grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  db:
+  grafana:
+  redis_data:
+    driver: local

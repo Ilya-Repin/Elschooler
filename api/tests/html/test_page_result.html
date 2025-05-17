@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<header>
+    
+</header>
+
+<main class="container-fluid">
+    <div class="navigation d-flex">
+        <div class="d-flex col-3 col-lg-4 navigation__fio">
+            <div class="navigation__years dropright">
+            </div>
+            <a href="/users/1111111" data-popover-content="Рюрикович Иван Васильевич<" class="d-none d-lg-block">Рюрикович Иван Васильевич<</a>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block navigation__type p-0 text-center">
+            <a href="details?rooId=11&instituteId=111&departmentId=11111111&pupilId=111111111" class="btn">Дневник</a>
+            <a href="grades?rooId=11&instituteId=111&departmentId=11111111&pupilId=111111111" class="btn">Табель</a>
+            <a href="gradesandabsences?rooId=11&instituteId=111&departmentId=11111111&pupilId=111111111" class="btn">Табель с учётом посещаемости</a>
+        </div>
+        <div class="col-lg-2 text-right">
+            <button type="button" class="btn diary__theme" data-popover-content="Переключить светлую/тёмную тему"><i class="fa fa-moon-o"></i></button>
+            <button type="button" data-popover-content="Выгрузить в Excel" class="btn download-to-excel" data-table-name="result-marks-table" data-file-name="Табель успеваемости.xls">
+                <i class="fa fa-file-excel-o"></i>
+            </button>
+        </div>
+    </div>
+    <div class="d-block d-lg-none navigation_mobile">
+        <a href="details?rooId=11&instituteId=111&departmentId=11111111&pupilId=111111111" class="btn">Дневник</a>
+        <a href="grades?rooId=11&instituteId=111&departmentId=11111111&pupilId=111111111" class="btn">Табель</a>
+        <a href="gradesandabsences?rooId=11&instituteId=111&departmentId=11111111&pupilId=111111111" class="btn">Табель с учётом посещаемости</a>
+    </div>
+    <div class="DivForResultsTable">
+        <h4 class="text-center mt-3 mt-lg-2">Рюрикович Иван Васильевич<</h4>
+
+        <table class="ResultsTable table table-bordered" id="result-marks-table">
+            <thead>
+            <tr>
+                <th>Предмет</th>
+                <th>1 четверть</th>
+                <th>2 четверть</th>
+                <th>3 четверть</th>
+                <th>4 четверть</th>
+                <th>1 полугодие</th>
+                <th>2 полугодие</th>
+                <th>Год</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Эльфийский язык как государственный язык Лесного Королевства</td>
+                <td class="results-mark mark2">
+                    <i>2</i>
+                </td>
+                <td class="results-mark mark3">
+                    <i>3</i>
+                </td>
+                <td class="results-mark mark4">
+                    <i>4</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark ">
+                    <i></i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark ">
+                    <i></i>
+                </td>
+            </tr>
+            <tr>
+                <td>Алхимия</td>
+                <td class="results-mark mark3">
+                    <i>3</i>
+                </td>
+                <td class="results-mark mark4">
+                    <i>4</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark3">
+                    <i>3</i>
+                </td>
+                <td class="results-mark mark4">
+                    <i>4</i>
+                </td>
+                <td class="results-mark mark4">
+                    <i>4</i>
+                </td>
+                <td class="results-mark mark4">
+                    <i>4</i>
+                </td>
+            </tr>
+            <tr>
+                <td>Дезинформатика</td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+                <td class="results-mark mark5">
+                    <i>5</i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="ResultsTable MobileResults table table-bordered">
+            <thead>
+            <tr>
+                <th colspan="6">Эльфийский язык как государственный язык Лесного Королевства</th>
+            </tr>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            <tr>
+
+                <td colspan="3">1 четверть</td>
+                <td colspan="3" class="results-mark mark2">2</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">2 четверть</td>
+                <td colspan="3" class="results-mark mark3">3</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">3 четверть</td>
+                <td colspan="3" class="results-mark mark4">4</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">4 четверть</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">1 полугодие</td>
+                <td colspan="3" class="results-mark "></td>
+            </tr>
+            <tr>
+
+                <td colspan="3">2 полугодие</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">Год</td>
+                <td colspan="3" class="results-mark "></td>
+            </tr>
+            </tbody>
+            <thead>
+            <tr>
+                <th colspan="6">Алхимия</th>
+            </tr>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            <tr>
+
+                <td colspan="3">1 четверть</td>
+                <td colspan="3" class="results-mark mark3">3</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">2 четверть</td>
+                <td colspan="3" class="results-mark mark4">4</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">3 четверть</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">4 четверть</td>
+                <td colspan="3" class="results-mark mark3">3</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">1 полугодие</td>
+                <td colspan="3" class="results-mark mark4">4</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">2 полугодие</td>
+                <td colspan="3" class="results-mark mark4">4</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">Год</td>
+                <td colspan="3" class="results-mark mark4">4</td>
+            </tr>
+            </tbody>
+            <thead>
+            <tr>
+                <th colspan="6">Дезинформатика</th>
+            </tr>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            <tr>
+
+                <td colspan="3">1 четверть</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">2 четверть</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">3 четверть</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">4 четверть</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">1 полугодие</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">2 полугодие</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            <tr>
+
+                <td colspan="3">Год</td>
+                <td colspan="3" class="results-mark mark5">5</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+</body>
+</html>
+
+
